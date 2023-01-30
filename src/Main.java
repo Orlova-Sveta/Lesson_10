@@ -36,13 +36,28 @@ public class Main {
 
         System.out.println(integerList.get(2));
 
-        List<? extends Number> numbers = Arrays.asList(3,5,6,8,4);
-        System.out.println(numbers.get(3));
-        numbers.add(3); // Пример типичной ошибки с Producer.
-        // Он может говорить о своих данных, но новые не получает
-
-
     }
+
+    /**
+     * Пример работы Producer
+     * Где мы можем получать элемнты, но не добалвять мх
+     * @param numbers
+     */
+    private static void test(List<? extends Number> numbers) {
+        System.out.println(numbers.get(3));
+        numbers.add(3);
+    }
+
+    /**
+     * Пример работы Consumer.
+     * Где мы можем добавлять элле менты, но не получать их
+     */
+    public static Integer getElement(List<? super Integer> list) {
+        list.add(4);
+        System.out.println(list);
+        return list.get(1);
+    }
+
 
 
 
